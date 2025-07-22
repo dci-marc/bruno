@@ -1,0 +1,32 @@
+meta {
+  name: /auth/login
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://127.0.0.1:8080/api/v1/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "{{username}}",
+    "password": "{{password}}"
+  }
+}
+
+script:post-response {
+  function onResponse(res) {
+    console.log("Setting token.");
+    let data = res.body;
+    if (data && data.data) {
+      bru.setVar("accessToken", data.data);
+      console.log("Success.");
+    } else {
+      console.error("Fail:", data);
+    }
+  }
+  onResponse(res);
+}
