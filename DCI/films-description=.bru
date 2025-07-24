@@ -1,0 +1,21 @@
+meta {
+  name: /films?description=
+  type: http
+  seq: 8
+}
+
+get {
+  url: http://127.0.0.1:8080/api/v1/films?description=drama&limit=10&offset=0
+  body: none
+  auth: bearer
+}
+
+params:query {
+  description: drama
+  limit: 10
+  offset: 0
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
