@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "Sakali",
+  "name": "Sakila",
   "type": "collection",
   "ignore": [
     "node_modules",
