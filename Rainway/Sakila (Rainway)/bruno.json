@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Sakila (Rainway)",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

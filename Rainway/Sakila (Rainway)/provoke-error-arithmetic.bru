@@ -1,0 +1,15 @@
+meta {
+  name: /provoke-error/arithmetic
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://sakila-rest-production.up.railway.app/api/v1/provoke-error/arithmetic
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}

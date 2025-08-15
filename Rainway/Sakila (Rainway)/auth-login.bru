@@ -1,0 +1,32 @@
+meta {
+  name: /auth/login
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://sakila-rest-production.up.railway.app/api/v1/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "{{username}}",
+    "password": "{{password}}"
+  }
+}
+
+script:post-response {
+  function onResponse(res) {
+    console.log("Setting token.");
+    let data = res.body;
+    if (data && data.data) {
+      bru.setVar("accessToken", data.data);
+      console.log("Success.");
+    } else {
+      console.error("Fail:", data);
+    }
+  }
+  onResponse(res);
+}

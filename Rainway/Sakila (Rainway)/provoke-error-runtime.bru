@@ -1,0 +1,15 @@
+meta {
+  name: /provoke-error/runtime
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://sakila-rest-production.up.railway.app/api/v1/provoke-error/runtime
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
